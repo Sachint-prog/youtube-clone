@@ -36,7 +36,7 @@
 
         .video{
             background-image: url("https://picsum.photos/250/150");
-            background-size: contain;
+            background-size: cover;
             background-repeat: no-repeat;
             width: 250px;
             height: 150px;
@@ -56,6 +56,7 @@
             background-image: url("https://picsum.photos/36/36");
             width: 36px;
             height: 36px;
+            border-radius: 50%;
         }
         .details{
             display: flex;
@@ -74,9 +75,10 @@
             font-weight: bold;
             margin-bottom: 5px;
             width: 100%;
-            white-space: nowrap;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
             overflow: hidden;
-            text-overflow: ellipsis;
         }
         .channel_name, .meta_data{
             color: rgba(0, 0, 0, 0.75);
@@ -85,27 +87,86 @@
 </head>
 <body>
     <div class="container">
-        
+        <!-- <div class="video_container">
+            <div id="video" class="video" --data-time = "20:50" --data-thumbnail-image = ""></div>
+            <div class="details">
+                <div class="logo"></div>
+                <div class="data">
+                    <div class="title">this is a title of the video that is showing above this title</div>
+                    <div class="channel_name">channel_name</div>
+                    <div class="meta_data">views and upload_time</div>
+                </div>
+            </div>
+        </div> -->
     </div>
 
     <script>
-        for (let i = 0; i < 100; i++) {
-            let parent = document.querySelector(".container")
-            let child = document.createElement("div")
-            child.classList.add("video_container")
-            child.innerHTML = `
-                <div class="video" --data-time = "20:50"></div>
-                <div class="details">
-                    <div class="logo"></div>
-                    <div class="data">
-                        <div class="title">this is a title of the video that is showing above this title</div>
-                        <div class="channel_name">channel_name</div>
-                        <div class="meta_data">views and upload_time</div>
-                    </div>
-                </div>
-            `
-            parent.append(child)
+        anime = "naruto"
+        url = `https://kitsu.io/api/edge/anime?filter[text]=${anime}`
+
+
+        fetch(url)
+            .then(res => res.json()) // parse response as JSON
+            .then(data => {
+                create_groupOf_videos(data.data)
+                
+                console.log(data)
+            })
+            .catch(err => {
+                console.log(`error ${err}`)
+            });
+
+        // let custome_api = [
+        //     {
+        //         title: "jujutsu kaisen season 1",
+        //         channel_name: "Gege Akutami",
+        //         thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPX-YOCiHWiR1FQ3Wr9m8gITiYqw-dz8MFQA&usqp=CAU",
+        //         logo: "",
+        //         views: "",
+        //         upload: ""
+        //     },
+        //     {
+        //         title: "jujutsu kaisen season 2",
+        //         channel_name: "Gege Akutami",
+        //     },
+        // ]
+
+
+        function create_groupOf_videos(data) {
+            for (let i = 0; i < data.length; i++) {   
+                let title = data[i].attributes.canonicalTitle
+                let thumbnail = data[i].attributes.coverImage.original
+                let no_of_episodes = data[i].attributes.episodeCount
+                let upload_time = data[i].attributes.startDate
+                let id = data[i].id
+
+                createVideo(title, thumbnail, no_of_episodes, upload_time, id)
+            }
         }
+        
+        function createVideo(title, thumbnail, no_of_episodes, upload_time, id) {
+            for (let i = 0; i < 1; i++) {
+                let parent = document.querySelector(".container")
+                let child = document.createElement("div")
+                child.classList.add("video_container")
+                child.innerHTML = `
+                    <div id="video${id}" class="video" --data-time = "20:50"></div>
+                    <div class="details">
+                        <div class="logo"></div>
+                        <div class="data">
+                            <div class="title">${title}</div>
+                            <div class="channel_name">episodes: ${no_of_episodes}</div>
+                            <div class="meta_data">views and ${upload_time}</div>
+                        </div>
+                    </div>
+                `
+                parent.append(child)
+                url1 = `url(${thumbnail})`
+                let video1 = document.getElementById(`video${id}`).style.backgroundImage = url1
+                
+            }
+        }
+
     </script>
 </body>
 </html>
