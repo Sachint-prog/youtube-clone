@@ -88,7 +88,9 @@
 <body>
     <div class="container">
         <!-- <div class="video_container">
-            <div id="video" class="video" --data-time = "20:50" --data-thumbnail-image = ""></div>
+            <a href="" target="_blank">
+                <div id="video" class="video" --data-time = "20:50" --data-thumbnail-image = ""></div>
+            </a>
             <div class="details">
                 <div class="logo"></div>
                 <div class="data">
@@ -116,6 +118,26 @@
                 console.log(`error ${err}`)
             });
 
+        // fetch("https://kitsu.io/api/edge/anime/11/streaming-links")
+        //     .then(res => res.json()) // parse response as JSON
+        //     .then(data => {
+                
+        //         console.log(data)
+        //     })
+        //     .catch(err => {
+        //         console.log(`error ${err}`)
+        //     });
+        
+        // fetch("https://kitsu.io/api/edge/anime?filter%5Btext%5D=naruto&page%5Bnumber%5D=1&page%5Bsize%5D=10")
+        //     .then(res => res.json()) // parse response as JSON
+        //     .then(data => {
+                
+        //         console.log(data)
+        //     })
+        //     .catch(err => {
+        //         console.log(`error ${err}`)
+        //     });
+
         // let custome_api = [
         //     {
         //         title: "jujutsu kaisen season 1",
@@ -139,18 +161,21 @@
                 let no_of_episodes = data[i].attributes.episodeCount
                 let upload_time = data[i].attributes.startDate
                 let id = data[i].id
+                let video_link = data[i].attributes.youtubeVideoId
 
-                createVideo(title, thumbnail, no_of_episodes, upload_time, id)
+                createVideo(title, thumbnail, no_of_episodes, upload_time, id, video_link)
             }
         }
         
-        function createVideo(title, thumbnail, no_of_episodes, upload_time, id) {
+        function createVideo(title, thumbnail, no_of_episodes, upload_time, id, video_link) {
             for (let i = 0; i < 1; i++) {
                 let parent = document.querySelector(".container")
                 let child = document.createElement("div")
                 child.classList.add("video_container")
                 child.innerHTML = `
-                    <div id="video${id}" class="video" --data-time = "20:50"></div>
+                    <a href="https://www.youtube.com/watch?v=${video_link}" target="_blank">
+                        <div id="video${id}" class="video" --data-time = "20:50"></div>
+                    </a>
                     <div class="details">
                         <div class="logo"></div>
                         <div class="data">
