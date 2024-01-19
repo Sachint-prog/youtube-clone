@@ -11,9 +11,54 @@
             margin: 0;
             box-sizing: border-box;
         }
+        body{
+            background-color: #f9f9f9;
+        }
+        header{
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        header nav{
+            min-width: 50%;
+            max-width: 90%;
+            height: 100%;
+        }
+        header nav form {
+            border: 2px solid black;
+            border-radius: 50px;
+            width: 100%;
+            height: 100%;
+            padding: 0px 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+        }
+        #search{
+            width: 80%;
+            height: 80%;
+            border: none;
+            /* border-radius: 50px; */
+            border: none;
+            outline: none;
+            background-color: #f9f9f9;
+        }
+        #submit{
+            border: none;
+            outline: none;
+            background-color: #f9f9f9;
+            width: 10%;
+        }
+        #submit:hover{
+            font-size: 1em;
+            text-decoration: underline;
+        }
         .container{
             width: 100%;
-            min-height: 100vh;
+            min-height: 90vh;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1em;
@@ -86,6 +131,14 @@
     </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <form action="">
+                <input id="search" type="text" placeholder="anime name">
+                <input id="submit" type="submit" >
+            </form>
+        </nav>
+    </header>
     <div class="container">
         <!-- <div class="video_container">
             <a href="" target="_blank">
