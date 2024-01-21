@@ -3,10 +3,21 @@
 @media (max-width: 750px) {
     header{
         flex-direction: column;
-        min-height: 20vh;
+        min-height: 25vh;
+        min-width: 100%;
+    }
+    nav{
+        min-width: 50%;
+        max-width: 100%;
     }
     .login{
         min-width: 50%;
+        max-width: 100%;
+    }
+    .main_page_logo_header{
+        min-height: 33%;
+        min-width: 50%;
+        max-width: 100%;
     }
 }
 
@@ -15,16 +26,40 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    /* color: #FFFFFF; */
 }
 body{
-    background-color: #f9f9f9;
+    background-color: #0F0F0F;
 }
+.header_div{
+    width: 100%;
+    height: 12vh;
+    background-color: #0F0F0F;
+}
+
 header{
     width: 100%;
-    height: 10vh;
+    height: 12vh;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    padding: 12px 0px;
+    position: fixed;
+    z-index: 1;
+    background-color: #0F0F0F;
+}
+.main_page_logo_header{
+    min-width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.main_page_logo_header img{
+    max-height: 100%;
+}
+.main_page_logo_header h1{
+    color: white;
 }
 .login{
     width: 20%;
@@ -38,20 +73,27 @@ header{
     width: 50%;
     height: 50%;
 }
-.login a button{
+.login a div{
     width: 100%;
     height: 100%;
-    background-color: rgb(161, 34, 34);
+    background-color: #0F0F0F;
     border-radius: 50px;
-    color: white;
+    color: #3CA6FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+}
+.login a div:hover{
+    background-color: #263850;
 }
 header nav{
     min-width: 50%;
-    max-width: 80%;
+    max-width: 60%;
     height: 100%;
 }
 header nav div {
-    border: 2px solid black;
+    border: 1px solid rgba(128, 128, 128, 0.7);
     border-radius: 50px;
     width: 100%;
     height: 100%;
@@ -59,6 +101,10 @@ header nav div {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #121212;
+}
+header nav div a, header nav div input{
+    color: #222222;
 }
 #search{
     width: 80%;
@@ -67,16 +113,18 @@ header nav div {
     /* border-radius: 50px; */
     border: none;
     outline: none;
-    background-color: #f9f9f9;
+    background-color: #121212;
+    color: gray;
 }
 #submit{
     border: none;
     outline: none;
-    background-color: #f9f9f9;
+    background-color: #121212;
     width: 20%;
-    margin-right: 25px;
-    color: black;
+    /* margin-right: 25px; */
+    color: gray;
     text-decoration: none;
+    text-align: center;
 }
 #submit:hover{
     font-size: 1em;
@@ -88,8 +136,8 @@ header nav div {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1em;
-    padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #0F0F0F;
+    padding: 25px;
 }
 .child{
     background-color: aqua;
@@ -112,6 +160,7 @@ header nav div {
     width: 250px;
     height: 350px;
     position: relative;
+    background-color: #3F3F3F;
 }
 .video::after{
     position: absolute;
@@ -128,6 +177,7 @@ header nav div {
     width: 36px;
     height: 36px;
     border-radius: 50%;
+    background-color: #3F3F3F;
 }
 .details{
     display: flex;
@@ -150,7 +200,8 @@ header nav div {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    color: white;
 }
 .channel_name, .meta_data{
-    color: rgba(0, 0, 0, 0.75);
+    color: gray;
 }
