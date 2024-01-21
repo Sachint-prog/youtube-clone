@@ -1,10 +1,11 @@
 let Next_page_video_link;
 let submit_button = document.querySelector("#submit");
 submit_button.addEventListener("click", search_anime);
-
-let anime = "naruto";
+let anime = localStorage.getItem("searched_anime")
+if(anime == null){
+  anime = "naruto";
+}
 let url = `https://kitsu.io/api/edge/anime?filter[text]=${anime}`;
-localStorage.clear()
 
 
 fetch(url)

@@ -1,6 +1,18 @@
 let url = localStorage.getItem("url");
+let submit_button = document.querySelector("#submit");
+// submit_button.addEventListener("click", search_anime);
 
 
+submit_button.addEventListener("click", function () {
+  let anime_name = document.querySelector("#search").value;
+  let anime = `${anime_name}`;
+  localStorage.setItem("searched_anime",anime)
+  console.log(anime)
+  // setTimeout(function() {
+    
+
+  // }, 3000)
+});
 
 if (url != null) {
 
@@ -54,7 +66,7 @@ if (url != null) {
         genre_fetch(genre)
 
         let child = document.querySelector(".container");
-        let parent = document.querySelector("body");
+        let parent = document.querySelector(".body_main");
         child.remove();
         let child2 = document.createElement("div");
         child2.classList.add("container");
@@ -101,15 +113,15 @@ function details(
   alternate_title_c,
   status_c,
   show_type_c) {
-  let title = document.querySelector(".title")
-  let description = document.querySelector(".description")
-  let start_date = document.querySelector(".start_date")
-  let end_date = document.querySelector(".end_date")
-  let episode_length = document.querySelector(".episode_length")
-  let episode_count = document.querySelector(".episode_count")
-  let alternate_title = document.querySelector(".alternate_title")
-  let status = document.querySelector(".status")
-  let show_type = document.querySelector(".show_type")
+  let title = document.querySelector(".title_video")
+  let description = document.querySelector(".description_video")
+  let start_date = document.querySelector(".start_date_video")
+  let end_date = document.querySelector(".end_date_video")
+  let episode_length = document.querySelector(".episode_length_video")
+  let episode_count = document.querySelector(".episode_count_video")
+  let alternate_title = document.querySelector(".alternate_title_video")
+  let status = document.querySelector(".status_video")
+  let show_type = document.querySelector(".show_type_video")
 
 
   title.textContent = title_c
@@ -209,4 +221,14 @@ function create_groupOf_videos(data) {
       });
     }
   }
+}
+
+
+
+
+function search_anime() {
+  let anime_name = document.querySelector("#search").value;
+  anime = `${anime_name}`;
+  localStorage.setItem("searched_anime", anime)
+  console.log(anime)
 }
