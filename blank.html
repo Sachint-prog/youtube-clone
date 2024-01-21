@@ -8,27 +8,38 @@
     <link rel="stylesheet" href="style_blank.css">
 </head>
 <body>
-    <div class="video_links_container">
-        <div class="video_details_container">
-            <iframe id="video_main_screen"  width="812" height="457" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
-
-            <div class="details_main_video">
-                <h1 class="title"></h1>
-                <p class="description"></p>
-                <p class="start_date"></p>
-                <p class="end_date"></p>
-                <p class="episode_length"></p>
-                <p class="episode_count"></p>
-                <p class="alternate_title"></p>
-                <p class="status"></p>
-                <p class="show_type"></p>
-                <p class="genres"></p>
+    <header>
+        <nav>
+            <div>
+                <input id="search" type="text" placeholder="anime name">
+                <input id="submit" type="submit" >
+            </div>
+        </nav>
+    </header>
+    <div class="body_main">
+        <div class="video_links_container">
+            <div class="video_details_container">
+                <iframe id="video_main_screen"  width="812" height="457" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+    
+                <div class="details_main_video">
+                    <h1 class="title"></h1>
+                    <p class="description"></p>
+                    <p class="start_date"></p>
+                    <p class="end_date"></p>
+                    <p class="episode_length"></p>
+                    <p class="episode_count"></p>
+                    <p class="alternate_title"></p>
+                    <p class="status"></p>
+                    <p class="show_type"></p>
+                    <p class="genres"></p>
+                </div>
             </div>
         </div>
+        <div class="container">
+    
+        </div>
     </div>
-    <div class="container">
-
-    </div>
+    
 
    <script type="module" src="video.js"></script>
 </body>
