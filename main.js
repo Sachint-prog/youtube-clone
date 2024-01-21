@@ -1,6 +1,20 @@
 let Next_page_video_link;
 let submit_button = document.querySelector("#submit");
-submit_button.addEventListener("click", search_anime);
+// submit_button.addEventListener("click", search_anime);
+
+
+submit_button.addEventListener("click", function () {
+  let anime_name = document.querySelector("#search").value;
+  let anime = `${anime_name}`;
+  localStorage.setItem("searched_anime",anime)
+  console.log(anime)
+  // setTimeout(function() {
+    
+
+  // }, 3000)
+});
+
+
 let anime = localStorage.getItem("searched_anime")
 if(anime == null){
   anime = "naruto";
@@ -54,29 +68,29 @@ fetch(url)
 //     },
 // ]
 
-function search_anime(params) {
-  let anime_name = document.querySelector("#search").value;
-  anime = `${anime_name}`;
-  url = `https://kitsu.io/api/edge/anime?filter[text]=${anime}`;
+// function search_anime(params) {
+//   let anime_name = document.querySelector("#search").value;
+//   anime = `${anime_name}`;
+//   url = `https://kitsu.io/api/edge/anime?filter[text]=${anime}`;
 
-  fetch(url)
-    .then((res) => res.json()) // parse response as JSON
-    .then((data) => {
-      let child = document.querySelector(".container");
-      let parent = document.querySelector("body");
-      child.remove();
-      let child2 = document.createElement("div");
-      child2.classList.add("container");
-      parent.append(child2);
+//   fetch(url)
+//     .then((res) => res.json()) // parse response as JSON
+//     .then((data) => {
+//       let child = document.querySelector(".container");
+//       let parent = document.querySelector("body");
+//       child.remove();
+//       let child2 = document.createElement("div");
+//       child2.classList.add("container");
+//       parent.append(child2);
 
-      create_groupOf_videos(data.data);
+//       create_groupOf_videos(data.data);
 
-      console.log(data);
-    })
-    .catch((err) => {
-      console.log(`error ${err}`);
-    });
-}
+//       console.log(data);
+//     })
+//     .catch((err) => {
+//       console.log(`error ${err}`);
+//     });
+// }
 
 function create_groupOf_videos(data) {
   for (let i = 0; i < data.length; i++) {
