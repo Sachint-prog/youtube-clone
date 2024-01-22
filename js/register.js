@@ -1,3 +1,15 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js'
+import { getDatabase, ref, push} from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js'
+
+const appSetting = {
+    // databaseURL: "https://clone-b3bd0-default-rtdb.firebaseio.com/"
+    databaseURL: "https://clone-private-default-rtdb.firebaseio.com/"
+}
+
+const app = initializeApp(appSetting)
+const database = getDatabase(app)
+const users_in_db = ref(database, "users")
+
 let form = document.querySelector("#form")
 let user_name = document.querySelector("#Username")
 let email = document.querySelector("#email")
@@ -8,6 +20,7 @@ form.addEventListener("submit", (event) => {
     
     formValidation();
     if (isFormValid()) {
+        push_to_firebase()
         form.submit()
     }
     else{
@@ -124,4 +137,15 @@ function isEmailValid(email){
     const reg =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
     return reg.test(email);
+}
+
+
+function push_to_firebase(){
+    let input_value = {
+        userName: `${user_name.value}`,
+        email: `${email.value}`,
+        password: `${password.value}`
+    }
+
+    push(users_in_db, input_value)
 }
