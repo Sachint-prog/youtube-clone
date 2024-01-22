@@ -14,17 +14,19 @@
     <a href="index.html" class="back">
         <i class='bx bx-arrow-back'></i>
     </a>
-    <div class="container">
+    <form class="container">
         <h1>Login</h1>
 
         <div class="input_box">
-            <input type="text" placeholder="Username" name="" id="" required>
+            <input type="text" placeholder="Username" name="Username" id="Username" required>
             <i class='bx bxs-user'></i>
+            <p class="error_message">error message</p>
         </div>
 
         <div class="input_box">
-            <input type="password" placeholder="password" name="" id="" required>
+            <input type="password" placeholder="password" name="password" id="password" required>
             <i class='bx bxs-lock-alt'></i>
+            <p class="error_message">error message</p>
         </div>
 
         <div class="remember_forgot">
@@ -38,7 +40,9 @@
             <p>Dont have an account ? <a href="register.html">Register</a></p>
         </div>
 
-    </div>
+    </form>
+
+    <script src="login.js"></script>
 </body>
 
 </html>

@@ -12,31 +12,37 @@
     <a href="index.html" class="back">
         <i class='bx bx-arrow-back'></i>
     </a>
-    <div class="container">
+    <form class="container" id="form" action="index.html" method="get">
         <h1>Register</h1>
 
         <div class="input_box">
-            <input type="text" placeholder="Username" name="" id="" required>
+            <input type="text" placeholder="Username" name="username" id="Username" required>
             <i class='bx bxs-user'></i>
+            <p class="error_message">error message</p>
         </div>
 
         <div class="input_box">
-            <input type="email" placeholder="email" name="" id="" required>
+            <input type="email" placeholder="email" name="email" id="email" required>
             <i class='bx bxs-envelope'></i>
+            <p class="error_message">error message</p>
         </div>
 
         <div class="input_box">
-            <input type="password" placeholder="password" name="" id="" required>
+            <input type="password" placeholder="password" name="password" id="password" required>
             <i class='bx bxs-lock-alt'></i>
+            <p class="error_message">error message</p>
         </div>
 
         <div class="input_box">
-            <input type="password" placeholder="confirm password" name="" id="" required>
+            <input type="password" placeholder="confirm_password" name="confirm_password" id="confirm_password" required>
             <i class='bx bxs-lock-alt'></i>
+            <p class="error_message">error message</p>
         </div>
         
         <button class="btn" type="submit">Register</button>
 
-    </div>
+    </form>
+
+    <script src="register.js"></script>
 </body>
 </html>
