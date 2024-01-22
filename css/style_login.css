@@ -10,7 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
-    background-image: url("img/bg_login.jpg");
+    background-image: url("../img/bg_login.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -81,11 +81,43 @@ body{
     transform: translateY(-50%);
     font-size: 20px;
 }
+.error_message{
+    visibility: hidden;
+    /* border: 2px solid var(--gradiant-color); */
+    /* border: 0.5px solid black; */
+    /* border-image: linear-gradient(45deg, red, orangered) 5; */
+    /* border-image: linear-gradient(20deg, purple, orange) 0.9; */
+
+}
+.error .error_message{
+    visibility: visible;
+    padding-left: 10px;
+    color: rgb(255, 0, 0);
+    /* color: ; */
+    /* background-image: linear-gradient(red, orangered); */
+    font-size: 15px;
+    text-align: left;
+    font-size: 1.1em;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50px;
+}
+.success .error_message{
+    visibility: visible;
+    padding-left: 10px;
+    color: green;
+    /* color: ; */
+    /* background-image: linear-gradient(red, orangered); */
+    font-size: 15px;
+    text-align: left;
+    font-size: 1.1em;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50px;
+}
 .remember_forgot{
     display: flex;
     justify-content: space-between;
     font-size: 14.5px;
-    margin: -15px 0 15px;
+    /* margin: -15px 0 15px; */
 }
 .remember_forgot label input{
     accent-color: white;
@@ -111,6 +143,7 @@ body{
     font-size: 16px;
     color: #333;
     font-weight: 600;
+    margin-top: 15px;
 }
 .register_link{
     text-align: center;
